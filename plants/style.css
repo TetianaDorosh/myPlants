@@ -1,10 +1,74 @@
+@import url(./vendors/normalize.css);
+@import url(./vendors/fonts.css);
+
 .body {
   width: 1440px;
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   border: 1px red solid;
+}
+.page {
+  /* padding: 0 109px; */
+}
+.header {
+  font-family: "Inika", Arial, serif;
+  height: 134px;
+  display: flex;
+  flex-direction: row;
+  justify-items: space-between;
+  /* align-items: center; */
+  padding: 42px 109px 42px 111px;
+  background-color: #edf2ec;
+  border: 1px green solid;
+}
+.header__navbar {
+  /* height: 50px; */
+  display: flex;
+  width: 1220px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* margin: auto; */
+  border: 1px black solid;
+}
+.header__image {
+  width: 79.17px;
+  height: 21.04px;
+  border: 1px red solid;
+}
+.header__nav {
+  font-family: "Inika";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 50px;
+  color: #010201;
+}
+.header__nav-list {
+  display: flex;
+  flex-direction: row;
+  border: 1px blue dashed;
+  /* align-items: flex-end; */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.header__nav-item {
+  margin-right: 46px;
+}
+.header__nav-item:last-of-type {
+  margin-right: 0;
+}
+.header__nav-link {
+  text-decoration: none;
+  color: #010201;
+}
+.header__nav-link:active {
+  color: #e06733;
+}
+
+.main: {
+  padding: 0 109;
 }

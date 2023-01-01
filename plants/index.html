@@ -4,33 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" hrf="style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Plants</title>
   </head>
   <body class="body">
-    <div class="main-container">
-      <header>
-        <nav>
-            <img src="assets/logo.svg" width="79.17px" height="21.04px" alt="logo">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="#home" class="nav-link">Home</a>
+    <header class="header">
+      <div class="header__navbar">
+        <img class="header__image" src="media/logo.svg" alt="logo" />
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-item">
+              <a href="#home" class="header__nav-link">Home</a>
             </li>
-            <li class="nav-item">
-              <a href="#about" class="nav-link">About us</a>
+            <li class="header__nav-item">
+              <a href="#about" class="header__nav-link">About us</a>
             </li>
-            <li class="nav-item">
-              <a href="#service" class="nav-link">Service</a>
+            <li class="header__nav-item">
+              <a href="#service" class="header__nav-link">Service</a>
             </li>
-            <li class="nav-item">
-              <a href="#price" class="nav-link">Price</a>
+            <li class="header__nav-item">
+              <a href="#price" class="header__nav-link">Price</a>
             </li>
-            li class="nav-item">
-              <a href="#contacts" class="nav-link">Contacts</a>
+            <li class="header__nav-item">
+              <a href="#contacts" class="header__nav-link">Contacts</a>
             </li>
           </ul>
         </nav>
-      </header>
-    </div>
+      </div>
+    </header>
+    <main class="main">
+      <section class="welcome">
+        <h1>We grow <span>plants</span> and give you oxygen</h1>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s.
+        </p>
+        <img src="./media/leafs.png" />
+      </section>
+    </main>
   </body>
 </html>

@@ -1,0 +1,11 @@
+@font-face {
+  src: url("../fonts/inika/Inika-Regular.ttf") format("truetype");
+  font-family: "Inika";
+  font-weight: 400;
+}
+
+@font-face {
+  src: url("../fonts/inika/Inika-Bold.ttf") format("truetype");
+  font-family: "Inika";
+  font-weight: 700;
+}
