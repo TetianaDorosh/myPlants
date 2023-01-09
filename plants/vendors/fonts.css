@@ -9,3 +9,20 @@
   font-family: "Inika";
   font-weight: 700;
 }
+
+@font-face {
+  src: url("../fonts/inter/Inter-Regular.ttf") format("truetype");
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+@font-face {
+  src: url("../fonts/inter/Inter-Bold.ttf") format("truetype");
+  font-family: "Inter";
+  font-weight: 700;
+}
+@font-face {
+  src: url("../fonts/inter/Inter-Black.ttf") format("truetype");
+  font-family: "Inter";
+  font-weight: 900;
+}
