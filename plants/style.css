@@ -84,7 +84,7 @@ html {
   background-color: #edf2ec;
   z-index: 100;
   visibility: hidden;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 
 .welcome {
@@ -97,7 +97,7 @@ html {
 }
 
 .welcome__image {
-  width: 448px;
+  max-width: 448px;
   height: 407px;
   margin-right: 224px;
   /* border: 1px green dashed; */
@@ -203,6 +203,7 @@ html {
   /* flex-wrap: wrap; */
   margin-right: 215px;
   margin-bottom: 90px;
+  flex-wrap: wrap;
   /* border: 1px blue solid; */
 }
 .service__content-title {
@@ -523,40 +524,55 @@ html {
   height: 50px;
   /* border: 1px blue solid; */
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1435px) {
+  .woman-picture {
+    width: 30%;
+    height: 80%;
+    margin-right: 5%;
+  }
+  .contacts__content-button {
+    width: 30%;
+    height: 50px;
+  }
+  .contacts__content-title {
+    margin-top: 60px;
+    margin-right: 5%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .welcome__image {
+    width: 40%;
+    height: 40%;
+    margin-right: 15%;
+  }
+  .about__image {
+    max-width: 40%;
+    height: 40%;
+  }
+}
+@media screen and (max-width: 900px) {
   .header {
     padding: 35px 50px;
-    /* border: 1px green solid; */
   }
   .header__navbar {
     height: 47px;
-    /* border: 1px black solid; */
   }
   .header__image {
     width: 77px;
     height: 21px;
-    /* border: 1px red solid; */
   }
   .welcome {
     padding: 40px 50px 70px;
     flex-direction: row-reverse;
-    /* border: 1px red solid; */
   }
   .welcome__image {
     width: 280px;
     height: 254px;
     margin: 0 0 55.85px 47px;
-    /* border: 1px green dashed; */
   }
   .welcome__content {
     width: 346px;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    font-family: Inter, Arial, sans-serif;
-    /* border: 1px black solid; */
   }
   .welcome__content-title {
     font-weight: 700;
@@ -573,47 +589,44 @@ html {
   .about {
     padding: 40px 50px 95px;
     flex-direction: column;
-    /* border: 1px blue solid; */
   }
   .about__content {
     margin: 0;
-    /* border: 1px green solid; */
   }
   .about__title {
     font-size: 35px;
     line-height: 46px;
     text-align: center;
     margin: 0 122px;
-    /* border: 1px red solid; */
   }
   .about__text {
     margin: 40px 0 28px;
-    /* border: 1px red solid; */
   }
   .about__image {
     max-width: 250px;
     height: 258px;
-    margin: 40px 209px 0;
-    /* border: 1px green dashed; */
+    margin: 40px auto 0;
   }
   .service {
     padding: 60px 50px 32px;
   }
   .service__content {
-    /* display: flex; */
     flex-direction: column;
-    /* justify-content: space-between; */
     margin-right: 109px;
     margin-bottom: 40px;
-    /* border: 1px blue solid; */
   }
   .service__content-title {
     font-size: 35px;
     line-height: 46px;
-    margin-right: 253px;
+    /* margin-right: 253px; */
+    text-align: left;
   }
   .service__content-buttons {
     margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .service-button {
+    margin-bottom: 9px;
   }
   .service-card {
     margin: 0 0 38px;
@@ -640,12 +653,8 @@ html {
     margin-bottom: 34px;
   }
   .price__title {
-    /* font-family: Inter, Arial, sans-serif;
-    font-weight: 700; */
     font-size: 25px;
     line-height: 35px;
-    /* color: #000000;
-    text-align: right;*/
     margin: 0 0 21.6px;
     padding: 0;
   }
@@ -674,28 +683,24 @@ html {
     width: 200px;
     height: 248px;
     margin: 250px 274px 0 294px;
-    /* border: 1px green solid; */
   }
-
   .contacts__content-title {
     margin: 0 0 100px;
     order: 1;
   }
   .contacts__content-button {
     margin: 0;
+    width: 450px;
   }
   .footer {
-    padding: 32.5px 279px 18px;
-    /* border: 1px green solid; */
+    padding: 32.5px 0 18px;
   }
   .footer__content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    align-content: center;
     height: 130px;
-    /* border: 1px blue solid; */
   }
   .footer__data {
     line-height: 24px;
@@ -718,7 +723,8 @@ html {
     height: 32px;
   }
 }
-@media screen and (max-width: 380px) {
+
+@media screen and (max-width: 550px) {
   .header {
     padding: 36px 25px;
   }
@@ -797,8 +803,6 @@ html {
   }
   .about {
     padding: 30px 25px;
-    /* flex-direction: column; */
-    /* border: 1px blue solid; */
   }
   .about__content {
     margin: 0;
@@ -822,8 +826,6 @@ html {
     max-width: 150px;
     height: 147px;
     margin: auto;
-    /* align-items: center; */
-    /* border: 1px green dashed; */
   }
   .service {
     padding: 0;
@@ -866,14 +868,11 @@ html {
   }
   .service-card {
     margin: 0 0 34px;
+    height: 450px;
   }
   .service-card:last-of-type {
     margin: 0 0 27px;
   }
-  /* .card-image {
-    margin: 0;
-  } */
-
   .prices {
     padding: 25px 0 40px;
     flex-direction: column;
@@ -888,13 +887,8 @@ html {
     height: auto;
   }
   .prices__title {
-    /* font-family: Inter, Arial, sans-serif;
-    font-weight: 700; */
     font-size: 25px;
     line-height: 30px;
-    /* color: #000000;
-    text-align: right;*/
-    /* margin: 0 0 21.6px; */
     padding: 0;
     margin: 0;
     margin-bottom: 40px;
@@ -907,44 +901,17 @@ html {
     padding: 0;
   }
   .prices__buttons {
-    /* box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px #e3e1d5 solid;
-    border-radius: 20px; */
     width: 224px;
     height: 235px;
     padding: 29px 22px;
   }
   .prices__button {
-    /* display: flex;
-    box-sizing: border-box;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center; */
-    /* height: 50px;
-    background-color: #edf2ec;
-    border-radius: 20px; */
-    /* border: 1px red solid; */
     padding: 0 45px 0 30px;
     margin: 0;
   }
-  /* .prices__button:last-of-type {
-    margin: 0;
-  } */
   .prices__button-title {
-    /* font-family: Inter, Arial, sans-serif;
-    font-weight: 700; */
     font-size: 15px;
-    /* line-height: 20px;
-    color: #000000; */
   }
-  /* .price__button-arrow {
-    width: 16px;
-    height: 16px;
-  } */
   .prices__info {
     margin-top: 19px;
     align-items: center;
