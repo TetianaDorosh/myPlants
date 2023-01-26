@@ -7,10 +7,13 @@ html {
 
 .body {
   max-width: 1440px;
+  /* min-width: 320px; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin: 0 auto;
+  /* align-content: center; */
   /* border: 1px red solid; */
 }
 .header {
@@ -77,12 +80,12 @@ html {
 }
 .popup {
   position: fixed;
-  top: 75px;
+  top: 0;
   right: -100%;
   width: 100%;
   height: 100%;
   background-color: #edf2ec;
-  z-index: 100;
+  z-index: 1;
   visibility: hidden;
   transition: 0.4s;
 }
@@ -103,7 +106,6 @@ html {
   /* border: 1px green dashed; */
 }
 .welcome__content {
-  max-width: 549px;
   margin: 36px 0 32px;
   display: flex;
   flex-direction: column;
@@ -141,6 +143,10 @@ html {
   border-radius: 10px;
   background-color: #edf2ec;
   /* margin-top: 40px; */
+}
+.welcome__button:hover {
+  background-color: #e06733;
+  color: #ffffff;
 }
 .about {
   padding: 93px 109px 94px;
@@ -240,6 +246,10 @@ html {
 .service-button:last-of-type {
   margin-right: 0;
 }
+.service-button:hover {
+  background-color: #e06733;
+  color: #ffffff;
+}
 
 .service__cards-list {
   box-sizing: border-box;
@@ -255,8 +265,8 @@ html {
 
 .service-card {
   margin-bottom: 55px;
-  border: 1px #e3e1d5 solid;
-  border-radius: 20px 20px 0px 0px;
+  /* border: 1px #e3e1d5 solid;
+  border-radius: 20px 20px 0px 0px; */
 }
 .card-image {
   width: 329px;
@@ -284,6 +294,9 @@ html {
 .service-card-text {
   display: flex;
   flex-direction: column;
+  border: 1px #e3e1d5 solid;
+  border-radius: 0px 0px 20px 20px;
+  border-top: none;
 }
 
 .prices {
@@ -320,6 +333,10 @@ html {
   border-radius: 5px;
   background: none;
   padding: 12px 34px 12px 30px;
+}
+.prices__contact-button:hover {
+  background-color: #e06733;
+  color: #ffffff;
 }
 .price__title {
   font-family: Inter, Arial, sans-serif;
@@ -532,10 +549,8 @@ html {
   }
   .contacts__content-button {
     width: 30%;
-    height: 50px;
   }
   .contacts__content-title {
-    margin-top: 60px;
     margin-right: 5%;
   }
 }
@@ -550,7 +565,7 @@ html {
     height: 40%;
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1124px) {
   .header {
     padding: 35px 50px;
   }
@@ -571,7 +586,6 @@ html {
     margin: 0 0 55.85px 47px;
   }
   .welcome__content {
-    width: 346px;
     margin: 0;
   }
   .welcome__content-title {
@@ -597,7 +611,7 @@ html {
     font-size: 35px;
     line-height: 46px;
     text-align: center;
-    margin: 0 122px;
+    margin: 0 auto;
   }
   .about__text {
     margin: 40px 0 28px;
@@ -724,7 +738,7 @@ html {
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 671px) {
   .header {
     padding: 36px 25px;
   }
@@ -812,7 +826,7 @@ html {
     font-size: 25px;
     line-height: 33px;
     text-align: center;
-    margin: 0 21px 21.55px;
+    margin: 0 auto 21.55px;
     /* border: 1px red solid; */
   }
   .about__text {
