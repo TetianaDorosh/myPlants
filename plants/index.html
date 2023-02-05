@@ -43,25 +43,27 @@
           </ul>
         </nav>
       </div>
-      <div class="popup">
-        <ul class="popup_menu">
-          <li><a href="javascript:void(0)" class="close_item">&times;</a></li>
-          <li>
-            <a href="#home" class="header__nav-link">Home</a>
-          </li>
-          <li>
-            <a href="#about" class="header__nav-link">About us</a>
-          </li>
-          <li>
-            <a href="#service" class="header__nav-link">Service</a>
-          </li>
-          <li>
-            <a href="#price" class="header__nav-link">Price</a>
-          </li>
-          <li>
-            <a href="#contacts" class="header__nav-link">Contacts</a>
-          </li>
-        </ul>
+      <div class="popup__content">
+        <div class="popup">
+          <ul class="popup_menu">
+            <li><a href="javascript:void(0)" class="close_item">&times;</a></li>
+            <li>
+              <a href="#home" class="header__nav-link">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="header__nav-link">About us</a>
+            </li>
+            <li>
+              <a href="#service" class="header__nav-link">Service</a>
+            </li>
+            <li>
+              <a href="#price" class="header__nav-link">Price</a>
+            </li>
+            <li>
+              <a href="#contacts" class="header__nav-link">Contacts</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
     <main class="main">
@@ -123,49 +125,79 @@
         <div class="service__content">
           <h2 class="service__content-title">Service and our <br />projects</h2>
           <div class="service__content-buttons">
-            <button type="button" class="service-button">Gardens</button>
-            <button type="button" class="service-button">Lawn</button>
-            <button type="button" class="service-button">Planting</button>
+            <button type="button" class="service-button garden-button">
+              Gardens
+            </button>
+            <button type="button" class="service-button lawn-button">
+              Lawn
+            </button>
+            <button type="button" class="service-button plant-button">
+              Planting
+            </button>
           </div>
         </div>
         <ul class="service__cards-list">
           <li class="service-card">
-            <img class="card-image" src="./media/first.jpg" alt="picture" />
+            <img
+              class="card-image garden"
+              src="./media/first.jpg"
+              alt="picture"
+            />
             <div class="service-card-text">
               <h3 class="card-title">Garden care</h3>
               <p>Lorem Ipsum has been the industry</p>
             </div>
           </li>
           <li class="service-card">
-            <img class="card-image" src="./media/first2.jpg" alt="picture" />
+            <img
+              class="card-image plant"
+              src="./media/first2.jpg"
+              alt="picture"
+            />
             <div class="service-card-text">
               <h3 class="card-title">Planting</h3>
               <p>Lorem Ipsum has been the industry</p>
             </div>
           </li>
           <li class="service-card">
-            <img class="card-image" src="./media/first3.jpg" alt="picture" />
+            <img
+              class="card-image lawn"
+              src="./media/first3.jpg"
+              alt="picture"
+            />
             <div class="service-card-text">
               <h3 class="card-title">Lawn care</h3>
               <p>Lorem Ipsum has been the industry</p>
             </div>
           </li>
           <li class="service-card">
-            <img class="card-image" src="./media/first4.jpg" alt="picture" />
+            <img
+              class="card-image plant"
+              src="./media/first4.jpg"
+              alt="picture"
+            />
             <div class="service-card-text">
               <h3 class="card-title">Planting</h3>
               <p>Lorem Ipsum has been the industry</p>
             </div>
           </li>
           <li class="service-card">
-            <img class="card-image" src="./media/first5.jpg" alt="picture" />
+            <img
+              class="card-image garden"
+              src="./media/first5.jpg"
+              alt="picture"
+            />
             <div class="service-card-text">
               <h3 class="card-title">Garden care</h3>
               <p>Lorem Ipsum has been the industry</p>
             </div>
           </li>
           <li class="service-card">
-            <img class="card-image" src="./media/first6.jpg" alt="picture" />
+            <img
+              class="card-image plant"
+              src="./media/first6.jpg"
+              alt="picture"
+            />
             <div class="service-card-text">
               <h3 class="card-title">Planting</h3>
               <p>Lorem Ipsum has been the industry</p>
@@ -185,6 +217,20 @@
                 alt="arrow"
               />
             </div>
+            <div class="prices__button-content">
+              <span class="line"></span>
+              <p class="prices__button-text">
+                Release of Letraset sheets containing Lorem Ipsum passages, and
+                more recently
+              </p>
+              <p class="price"><span>$15</span>/ per hour</p>
+              <button
+                class="order-button"
+                onclick="return location.href='#contacts'"
+              >
+                Order
+              </button>
+            </div>
 
             <div class="prices__button">
               <h3 class="prices__button-title">Standard</h3>
@@ -194,6 +240,20 @@
                 alt="arrow"
               />
             </div>
+            <div class="prices__button-content">
+              <span class="line"></span>
+              <p class="prices__button-text">
+                Release of Letraset sheets containing Lorem Ipsum passages, and
+                more recently
+              </p>
+              <p class="price"><span>$25</span>/ per hour</p>
+              <button
+                class="order-button"
+                onclick="return location.href='#contacts'"
+              >
+                Order
+              </button>
+            </div>
             <div class="prices__button">
               <h3 class="prices__button-title">Pro care</h3>
               <img
@@ -201,6 +261,20 @@
                 class="price__button-arrow"
                 alt="arrow"
               />
+            </div>
+            <div class="prices__button-content">
+              <span class="line"></span>
+              <p class="prices__button-text">
+                Release of Letraset sheets containing Lorem Ipsum passages, and
+                more recently
+              </p>
+              <p class="price"><span>$35</span>/ per hour</p>
+              <button
+                class="order-button"
+                onclick="return location.href='#contacts'"
+              >
+                Order
+              </button>
             </div>
           </div>
         </div>
@@ -222,13 +296,29 @@
             class="woman-picture"
           />
           <h2 class="contacts__content-title">Contact us</h2>
-          <div class="contacts__content-button">
-            <h3 class="contacts__button-title">City</h3>
-            <img
-              src="./media/button-grey.png"
-              class="price__button-arrow"
-              alt="arrow"
-            />
+
+          <div class="content-button_wrapper">
+            <div class="contacts__content-button">
+              <h3 class="contacts__button-title">City</h3>
+              <img
+                src="./media/button-grey.png"
+                class="select-arrow"
+                alt="arrow"
+              />
+            </div>
+
+            <div class="select hidden">
+              <ul class="city-list">
+                <li class="city">Canandaigua, NY</li>
+                <li class="contacts-line"></li>
+                <li class="city">New York City</li>
+                <li class="contacts-line"></li>
+                <li class="city">Yonkers, NY</li>
+                <li class="contacts-line"></li>
+                <li class="city">Sherrill, NY</li>
+                <li class="contacts-line"></li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
