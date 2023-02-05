@@ -13,8 +13,6 @@ html {
   flex-direction: column;
   justify-content: flex-start;
   margin: 0 auto;
-  /* align-content: center; */
-  /* border: 1px red solid; */
 }
 .header {
   font-family: "Inika", Arial, serif;
@@ -74,22 +72,10 @@ html {
 .humburger_icon {
   display: none;
 }
-.humburger_image {
-  width: 40px;
-  height: 24px;
-}
-.popup {
-  position: fixed;
-  top: 0;
+.popup__content {
+  display: none;
   right: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #edf2ec;
-  z-index: 1;
-  visibility: hidden;
-  transition: 0.4s;
 }
-
 .welcome {
   padding: 62px 109px;
   display: flex;
@@ -246,7 +232,8 @@ html {
 .service-button:last-of-type {
   margin-right: 0;
 }
-.service-button:hover {
+.service-button:hover,
+.active {
   background-color: #e06733;
   color: #ffffff;
 }
@@ -274,6 +261,10 @@ html {
   overflow: hidden;
   border-radius: 20px 20px 0px 0px;
 }
+.blur {
+  opacity: 0.4;
+  transition: 0.4s;
+}
 
 .card-title {
   font-family: Inter, Arial, sans-serif;
@@ -290,6 +281,7 @@ html {
   line-height: 20px;
   color: #717171;
   margin: 0 0 36px;
+  text-align: center;
 }
 .service-card-text {
   display: flex;
@@ -355,7 +347,7 @@ html {
   line-height: 50px;
   color: #000000;
   text-align: right;
-  margin: 0;
+  margin-bottom: 60px;
   padding: 0;
   text-align: left;
 }
@@ -367,7 +359,8 @@ html {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 14px;
-  height: 391px;
+  /* height: 391px; */
+  height: auto;
 }
 .prices__buttons {
   box-sizing: border-box;
@@ -378,8 +371,9 @@ html {
   border: 1px #e3e1d5 solid;
   border-radius: 20px;
   width: 332px;
-  height: 282px;
-  padding: 34px 41px;
+  /* height: 282px; */
+  height: auto;
+  padding: 32px 40px 0;
 }
 .prices__button {
   display: flex;
@@ -393,10 +387,10 @@ html {
   border-radius: 20px;
   /* border: 1px red solid; */
   padding: 0 40px;
-  /* margin: 40px 0; */
+  margin-bottom: 32px;
 }
 .prices__button:last-of-type {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .prices__button-title {
@@ -409,8 +403,63 @@ html {
 .price__button-arrow {
   width: 16px;
   height: 16px;
+  cursor: pointer;
 }
-
+.prices__button-content {
+  display: none;
+  background: #d6e7d2;
+  border-radius: 20px;
+  width: 250px;
+  height: 154px;
+  padding: 16px 40px 0;
+  box-sizing: border-box;
+}
+.prices__button-content.opened {
+  display: block;
+}
+.prices__button-text {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 10px;
+  color: #717171;
+}
+.line {
+  width: 164px;
+  line-height: 0px;
+  left: 114px;
+  top: 111px;
+  border: 0.5px solid #aea1a1;
+  display: block;
+}
+.price {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #000000;
+}
+.price span {
+  font-weight: 700;
+  color: #e06733;
+}
+.order-button {
+  width: 86px;
+  height: 25px;
+  background: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #717171;
+  margin: 12px 0;
+  cursor: pointer;
+}
 .contacts {
   padding: 0 109px;
   background-color: #edf2ec;
@@ -439,7 +488,7 @@ html {
   color: #499a18;
   /* border: 1px red solid; */
   margin-top: 60px;
-  margin-right: 67px;
+  margin-left: 50px;
   /* margin: 60px 0 0 113px; */
 }
 .contacts__content-button {
@@ -468,6 +517,56 @@ html {
   letter-spacing: 0.05em;
   color: #717171;
 }
+.select {
+  position: absolute;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  /* align-items: left; */
+  width: 450px;
+  height: 234px;
+  background: #dce9d9;
+  padding: 26px 0 31px 20px;
+  box-sizing: border-box;
+  /* margin-top: 200px;
+  margin-left: 753px; */
+  /* border: 1px #e06733 solid; */
+}
+.city-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.city {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 35px;
+  letter-spacing: 0.05em;
+  color: #499a18;
+  margin: 0;
+}
+.contacts-line {
+  width: 380px;
+  height: 0px;
+  border: 1px solid #d9d9d9;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.hidden {
+  display: none;
+}
+.select-arrow {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
 .footer {
   padding: 40px 109px;
   /* border: 1px green solid; */
@@ -758,9 +857,37 @@ html {
     justify-content: flex-end;
     align-items: center;
   }
-  .popup.opened {
+  .humburger_image {
+    width: 40px;
+    height: 24px;
+  }
+
+  body.noscroll {
+    overflow: hidden;
+  }
+
+  .popup__content {
+    background-color: rgba(20, 20, 20, 0.3);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transition: all 0.5s linear;
+  }
+  .popup {
+    position: fixed;
+    top: 0;
     right: 0;
-    visibility: visible;
+    width: 70%;
+    height: 100%;
+    background-color: #edf2ec;
+    z-index: 1;
+    transition: all 0.5s linear;
+  }
+  .popup__content.opened {
+    display: block;
+    right: 0;
+    transition: all 0.5s linear;
   }
   .popup_menu {
     font-weight: 400;
@@ -781,9 +908,6 @@ html {
     color: #010201;
     text-decoration: none;
     float: left;
-  }
-  body.noscroll {
-    overflow: hidden;
   }
   .welcome {
     padding: 24px 25px;
