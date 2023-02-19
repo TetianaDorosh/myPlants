@@ -378,19 +378,16 @@ html {
 .prices__button {
   display: flex;
   box-sizing: border-box;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
-  height: 50px;
+  /* height: 50px; */
   background-color: #edf2ec;
   border-radius: 20px;
   /* border: 1px red solid; */
-  padding: 0 40px;
+  /* padding: 0 40px; */
   margin-bottom: 32px;
-}
-.prices__button:last-of-type {
-  margin-bottom: 0;
 }
 
 .prices__button-title {
@@ -400,7 +397,14 @@ html {
   line-height: 20px;
   color: #000000;
 }
-.price__button-arrow {
+.prices__button_wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  align-items: center;
+}
+.price__button-arrow,
+.price-card_arrow_opened {
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -410,13 +414,18 @@ html {
   background: #d6e7d2;
   border-radius: 20px;
   width: 250px;
-  height: 154px;
-  padding: 16px 40px 0;
+  padding: 0 40px 0;
   box-sizing: border-box;
+  position: relative;
 }
 .prices__button-content.opened {
   display: block;
 }
+.prices__button_active,
+.prices__button:hover {
+  background: #d6e7d2;
+}
+
 .prices__button-text {
   font-family: Inter, Arial, sans-serif;
   font-style: normal;
@@ -508,6 +517,12 @@ html {
   padding-right: 35px;
   /* border: 1px red solid; */
 }
+.contacts__content-button_active {
+  background: #c1e698;
+  border: 1px solid #d6e7d2;
+  box-shadow: none;
+}
+
 .contacts__button-title {
   font-family: Inter, Arial, sans-serif;
   font-style: normal;
@@ -519,28 +534,12 @@ html {
 }
 .select {
   position: absolute;
-  display: flex;
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
-  /* align-items: left; */
   width: 450px;
-  height: 234px;
   background: #dce9d9;
-  padding: 26px 0 31px 20px;
+  padding: 26px 35px 31px;
   box-sizing: border-box;
-  /* margin-top: 200px;
-  margin-left: 753px; */
-  /* border: 1px #e06733 solid; */
-}
-.city-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
   margin: 0;
-  box-sizing: border-box;
-  padding: 0;
-}
-.city {
   font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -548,25 +547,102 @@ html {
   line-height: 35px;
   letter-spacing: 0.05em;
   color: #499a18;
-  margin: 0;
 }
-.contacts-line {
-  width: 380px;
-  height: 0px;
-  border: 1px solid #d9d9d9;
-  display: inline-block;
+
+.city {
   margin-bottom: 12px;
+  padding-left: 8px;
+  border-bottom: 1px solid #d9d9d9;
+  cursor: pointer;
+}
+
+.city:hover {
+  border-bottom: 1px solid #717171;
+  color: #717171;
+}
+
+.select-arrow {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background-image: url("./media/button-grey.png");
+  background-repeat: no-repeat;
+}
+
+.select-arrow_active {
+  background-image: url("./media/arrow_btn_opened.png");
+}
+
+.city-cards_container {
+  padding-top: 47px;
+}
+.city-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 448px;
+  background: #edf2ec;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 17px 76px 32px 35px;
+  box-sizing: border-box;
+  display: none;
+}
+.city-card_opened {
+  display: flex;
+}
+.city-card_text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.city-card_left {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+.city-card_right {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: #717171;
+}
+
+.callUsButton {
+  width: 122px;
+  height: 26px;
+  border: 1px solid #e06733;
+  border-radius: 5px;
+  font-family: Inika, Arial, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 13px;
+  text-align: center;
+  color: #717171;
+  align-self: center;
+  background: none;
+  box-sizing: border-box;
+  margin-top: 17px;
+  cursor: pointer;
+}
+.callUsButton:hover {
+  background-color: #e06733;
+  color: #ffffff;
 }
 
 .hidden {
   display: none;
 }
-.select-arrow {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-
 .footer {
   padding: 40px 109px;
   /* border: 1px green solid; */

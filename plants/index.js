@@ -38,7 +38,7 @@ function handleClick(event) {
 }
 link.addEventListener("click", handleClick);
 
-//Код для гамбургер-меню
+//Реализация гамбургер-меню
 
 const hamb = document.querySelector(".humburger_icon");
 const popup = document.querySelector(".popup__content");
@@ -66,7 +66,7 @@ function closeOnClick() {
   body.classList.remove("noscroll");
 }
 
-//outside click
+//outside click in hamburger
 
 popup.addEventListener("click", (evt) => {
   if (evt.target.classList.contains("popup__content")) {
@@ -74,28 +74,47 @@ popup.addEventListener("click", (evt) => {
   }
 });
 
-//Самооценка
-
-console.log(`Самооценка работы:\n
-Вёрстка соответствует макету. Ширина экрана 768px: 24;\n
-Вёрстка соответствует макету. Ширина экрана 380px: 20;\n
-Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки: 15;\n
-На ширине экрана 380рх и меньше реализовано адаптивное меню: 18;\n
-Всего баллов за работу: 77`);
-
 //Аккордеон
 
 const arrows = document.querySelectorAll(".price__button-arrow");
 const contents = document.querySelectorAll(".prices__button-content");
+const buttons = document.querySelectorAll(".prices__button");
 
-let accordeon = function (arrow, content) {
-  arrow.addEventListener("click", function () {
-    content.classList.toggle("opened");
+// let accordeon = function (arrow, content, button) {
+//   arrow.addEventListener("click", function () {
+//     content.classList.toggle("opened");
+//     button.classList.toggle("prices__button_active");
+//   });
+// };
+
+let closePanel = function (arrow, content, button) {
+  content.classList.remove("opened");
+  button.classList.remove("prices__button_active");
+  arrow.src = "./media/accordion_btn.svg";
+};
+
+let accordeon = function (arrow, content, button) {
+  button.addEventListener("click", function () {
+    //if element opened, we close this element and content
+    if (this.classList.contains("prices__button_active")) {
+      this.classList.remove("prices__button_active");
+      content.classList.remove("opened");
+      arrow.src = "./media/accordion_btn.svg";
+    } else {
+      //else we close every panel
+      for (let i = 0; i < arrows.length; i++) {
+        closePanel(arrows[i], contents[i], buttons[i]);
+      }
+      //we open clicked element
+      this.classList.add("prices__button_active");
+      content.classList.add("opened");
+      arrow.src = "./media/arrow_btn_opened.png";
+    }
   });
 };
 
 for (let i = 0; i < arrows.length; i++) {
-  accordeon(arrows[i], contents[i]);
+  accordeon(arrows[i], contents[i], buttons[i]);
 }
 
 //Смена фокуса в услугах
@@ -103,120 +122,122 @@ for (let i = 0; i < arrows.length; i++) {
 const gardenButton = document.querySelector(".garden-button");
 const lawnButton = document.querySelector(".lawn-button");
 const plantButton = document.querySelector(".plant-button");
+const serviceButtons = document.querySelectorAll(".service-button");
 const plantCards = document.querySelectorAll(".plant");
 const gardenCards = document.querySelectorAll(".garden");
 const lawnCards = document.querySelectorAll(".lawn");
-const activeCards = [];
+let activeButtons = [0, 0, 0];
 
-//When garden is not active, we need to make it active by adding blur other cards which are not active.
-// If activecards not empty
+for (let i = 0; i < serviceButtons.length; i++) {
+  serviceButtons[i].addEventListener("click", function () {
+    if (
+      activeButtons[i] === 0 &&
+      activeButtons.filter((x) => x === 1).length < 2
+    ) {
+      activeButtons[i] = 1;
+      serviceButtons[i].classList.add("active");
+    } else {
+      activeButtons[i] = 0;
+      serviceButtons[i].classList.remove("active");
+    }
 
-// gardenButton.addEventListener("click", function () {
-//   if (activeCards.includes(gardenCards)) {
-//     activeCards.pop(gardenCards);
-//     if (activeCards !== []) {
-//       gardenCards.forEach(addBlur);
-//     } else {
-//       gardenCards.forEach(removeBlur);
-//       lawnCards.forEach(removeBlur);
-//       plantCards.forEach(removeBlur);
-//     }
-//   } else {
-//     if (!activeCards.includes(plantCards)) {
-//       plantCards.forEach(addBlur);
-//     }
-//     if (!activeCards.includes(lawnCards)) {
-//       lawnCards.forEach(addBlur);
-//     }
-//     activeCards.push(gardenCards);
-//     gardenCards.forEach(removeBlur);
-//   }
-// });
+    let gardenActive = gardenButton.classList.contains("active");
+    let lawnActive = lawnButton.classList.contains("active");
+    let plantActive = plantButton.classList.contains("active");
 
-gardenButton.addEventListener("click", function () {
-  if (lawnButton.classList.contains("active")) {
-    gardenCards.forEach(cardHandle);
-  }
-  if (plantButton.classList.contains("active")) {
-    gardenCards.forEach(cardHandle);
-  } else {
-    plantCards.forEach(cardHandle);
-    lawnCards.forEach(cardHandle);
-  }
-  gardenButton.classList.toggle("active");
-});
+    if (gardenActive && !lawnActive && !plantActive) {
+      lawnCards.forEach(addBlur);
+      plantCards.forEach(addBlur);
+    } else if (gardenActive && lawnActive && !plantActive) {
+      lawnCards.forEach(removeBlur);
+    } else if (gardenActive && !lawnActive && plantActive) {
+      lawnCards.forEach(addBlur);
+      plantCards.forEach(removeBlur);
+    }
 
-lawnButton.addEventListener("click", function () {
-  if (gardenButton.classList.contains("active")) {
-    lawnCards.forEach(cardHandle);
-  }
-  if (plantButton.classList.contains("active")) {
-    lawnCards.forEach(cardHandle);
-  } else {
-    plantCards.forEach(cardHandle);
-    gardenCards.forEach(cardHandle);
-  }
-  lawnButton.classList.toggle("active");
-});
+    if (!gardenActive && lawnActive && !plantActive) {
+      gardenCards.forEach(addBlur);
+      plantCards.forEach(addBlur);
+    } else if (!gardenActive && lawnActive && plantActive) {
+      plantCards.forEach(removeBlur);
+    } else if (gardenActive && lawnActive && !plantActive) {
+      plantCards.forEach(addBlur);
+      gardenCards.forEach(removeBlur);
+    }
 
-plantButton.addEventListener("click", function () {
-  if (gardenButton.classList.contains("active")) {
-    plantCards.forEach(cardHandle);
-  }
-  if (lawnButton.classList.contains("active")) {
-    plantCards.forEach(cardHandle);
-  } else {
-    gardenCards.forEach(cardHandle);
-    lawnCards.forEach(cardHandle);
-  }
-  plantButton.classList.toggle("active");
-});
+    if (!gardenActive && !lawnActive && plantActive) {
+      gardenCards.forEach(addBlur);
+      lawnCards.forEach(addBlur);
+    } else if (!gardenActive && lawnActive && plantActive) {
+      lawnCards.forEach(removeBlur);
+    } else if (gardenActive && !lawnActive && plantActive) {
+      lawnCards.forEach(addBlur);
+      gardenCards.forEach(removeBlur);
+    }
 
-const cardHandle = function (item) {
-  item.classList.toggle("blur");
+    if (!gardenActive && !lawnActive && !plantActive) {
+      lawnCards.forEach(removeBlur);
+      gardenCards.forEach(removeBlur);
+      plantCards.forEach(removeBlur);
+    }
+  });
+}
+
+const addBlur = function (item) {
+  item.classList.add("blur");
 };
-
-// function checkActive(item) {
-//   if (item.classList.contains("active")) {
-//     activeCards.push(item);
-//   } else {
-//     activeCards.pop(item);
-//   }
-// }
-
-// const addBlur = function (item) {
-//   item.classList.add("blur");
-// };
 
 const removeBlur = function (item) {
   item.classList.remove("blur");
 };
 
-// for (let i = 0; i < arrows.length; i++) {
-//   arrows[i].addEventListener("click", function () {
-//     console.log("arrow pressed");
-//   });
-// }
-
-// arrow.addEventListener("click", () => {
-//   content.classList.toggle("opened");
-// });
-
-// arrow.addEventListener("click", showContent);
-
-// function showContent() {
-//   content.classList.toggle("opened");
-// }
-
 // Реализация селекта
 
 const contactsDropDown = document.querySelector(".select-arrow");
 const select = document.querySelector(".select");
+const selectButton = document.querySelector(".contacts__content-button");
+const cityCard = document.querySelector(".city-card");
 
 contactsDropDown.addEventListener("click", function () {
-  console.log("Кнопка работает");
   select.classList.toggle("hidden");
+  if (select.classList.contains("hidden")) {
+    selectButton.classList.remove("contacts__content-button_active");
+    contactsDropDown.classList.remove("select-arrow_active");
+  } else {
+    selectButton.classList.add("contacts__content-button_active");
+    contactsDropDown.classList.add("select-arrow_active");
+  }
+  for (let i = 0; i < cityCards.length; i++) {
+    closeCard(cityCards[i]);
+  }
+  cityName.textContent = "City";
 });
+
+const cities = document.querySelectorAll(".city");
+const cityCards = document.querySelectorAll(".city-card");
+const cityName = document.querySelector(".contacts__button-title");
+
+let selectFunction = function (city, card) {
+  city.addEventListener("click", function () {
+    card.classList.toggle("city-card_opened");
+    select.classList.add("hidden");
+    cityName.textContent = city.textContent;
+  });
+};
+
+for (let i = 0; i < cities.length; i++) {
+  selectFunction(cities[i], cityCards[i]);
+}
+
+let closeCard = function (card) {
+  card.classList.remove("city-card_opened");
+};
+
+// document.addEventListener("click", function (evt) {
+//   if (evt.target !== contactsDropDown) {
+//     select.classList.add("hidden");
+//   }
+// });
 
 // Самооценка Plants#3
 
