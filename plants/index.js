@@ -233,17 +233,4 @@ let closeCard = function (card) {
   card.classList.remove("city-card_opened");
 };
 
-// document.addEventListener("click", function (evt) {
-//   if (evt.target !== contactsDropDown) {
-//     select.classList.add("hidden");
-//   }
-// });
-
-// Самооценка Plants#3
-
-console.log(`Самооценка работы Plants#3:\n
-При нажатии на кнопки:Gargens,Lawn,Planting происходит смена фокуса на услугах в разделе service: 20/50;\n
-Accordion в секции prices реализация 3-х выпадающих списков об услугах и ценах: 20/50;\n
-В разделе contacts реализован select с выбором городов: 0/25;\n
-
-Всего баллов за работу: 40`);
+console.log("New repository");
